@@ -198,11 +198,59 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ],
     );
 
+    final themedContent = content;
+
     if (!widget.useScaffold) {
-      return content;
+      return themedContent;
     }
 
-    return PScaffold(title: 'Wallet Home'.tr, body: content);
+    return PScaffold(title: 'Wallet Home'.tr, body: themedContent);
+  }
+}
+
+class _PirateHomeBackdrop extends StatelessWidget {
+  const _PirateHomeBackdrop();
+
+  @override
+  Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
+    final asset = isLight
+        ? 'assets/backgrounds/pirate_sand_light.jpg'
+        : 'assets/backgrounds/pirate_beach_dark.jpg';
+
+    return IgnorePointer(
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            asset,
+            fit: BoxFit.cover,
+            alignment: Alignment.center,
+            filterQuality: FilterQuality.medium,
+          ),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: isLight
+                    ? [
+                        const Color(0x52FFF4DE),
+                        const Color(0x22FFF4DE),
+                        const Color(0x36F1D29A),
+                      ]
+                    : [
+                        const Color(0x8A090705),
+                        const Color(0x5C090705),
+                        const Color(0xA80A0705),
+                      ],
+                stops: const [0.0, 0.50, 1.0],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -281,7 +329,11 @@ class _HomeHeader extends ConsumerWidget {
 
     final headerSurface = DecoratedBox(
       key: HomeScreen.headerSurfaceKey,
-      decoration: BoxDecoration(color: AppColors.backgroundBase),
+      decoration: BoxDecoration(
+        color: Theme.of(context).brightness == Brightness.light
+            ? const Color(0x18FFF8EA)
+            : const Color(0x180D0A07),
+      ),
       child: SafeArea(
         bottom: false,
         child: Padding(
@@ -547,8 +599,12 @@ class _QuickActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
     return PCard(
       onTap: onTap,
+      backgroundColor: isLight
+          ? const Color(0xB8FFF8EA)
+          : const Color(0xA815100B),
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: PSpacing.lg,
@@ -559,17 +615,43 @@ class _QuickActionButton extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(PSpacing.md),
               decoration: BoxDecoration(
-                color: color.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  colors: [
+                    color.withValues(alpha: 0.24),
+                    AppColors.gradientAEnd.withValues(alpha: 0.10),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                border: Border.all(
+                  color: color.withValues(alpha: 0.34),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: color.withValues(alpha: 0.10),
+                    blurRadius: 14,
+                    spreadRadius: 1,
+                  ),
+                ],
               ),
-              child: Icon(icon, color: color, size: 28, semanticLabel: label),
+              child: Icon(icon, color: AppColors.highlight, size: 28, semanticLabel: label),
             ),
             const SizedBox(height: PSpacing.sm),
             Text(
               label,
-              style: PTypography.bodyMedium().copyWith(
-                fontWeight: FontWeight.w600,
+              style: PTypography.heading5().copyWith(
+                fontWeight: FontWeight.w700,
                 color: AppColors.textPrimary,
+              ),
+            ),
+            const SizedBox(height: PSpacing.xxs),
+            Text(
+              label == 'Send'.tr
+                  ? 'Send ARRR to another wallet'.tr
+                  : 'Get paid with your address'.tr,
+              style: PTypography.bodySmall().copyWith(
+                color: AppColors.textSecondary,
               ),
             ),
           ],

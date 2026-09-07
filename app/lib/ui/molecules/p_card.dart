@@ -58,9 +58,15 @@ class _PCardState extends State<PCard> {
       boxShadow: isHovered
           ? [
               BoxShadow(
-                color: AppColors.shadow,
-                blurRadius: 16.0,
+                color: AppColors.gradientAStart.withValues(alpha: 0.10),
+                blurRadius: 22.0,
+                spreadRadius: 1.0,
                 offset: const Offset(0, 8),
+              ),
+              BoxShadow(
+                color: AppColors.shadowStrong,
+                blurRadius: 18.0,
+                offset: const Offset(0, 10),
               ),
             ]
           : null,
@@ -75,7 +81,9 @@ class _PCardState extends State<PCard> {
       child: AnimatedContainer(
         duration: reduceMotion
             ? Duration.zero
-            : const Duration(milliseconds: 200),
+            : const Duration(milliseconds: 220),
+        curve: Curves.easeOutCubic,
+        transform: Matrix4.translationValues(0, isHovered ? -2.0 : 0.0, 0),
         decoration: decoration,
         clipBehavior: Clip.antiAlias,
         child: Material(

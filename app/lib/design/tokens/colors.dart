@@ -14,19 +14,19 @@ class PColors {
 
   /// Base background - Deepest level (#0B0F14)
   /// Use for: App background, full-screen views
-  static const Color backgroundBase = Color(0xFF0B0F14);
+  static const Color backgroundBase = Color(0xFF0D0A07);
 
   /// Surface background - First elevation (#111722)
   /// Use for: Cards, sheets, panels
-  static const Color backgroundSurface = Color(0xFF111722);
+  static const Color backgroundSurface = Color(0xFF16110C);
 
   /// Elevated background - Second elevation (#171F2B)
   /// Use for: Modals, dialogs, floating elements
-  static const Color backgroundElevated = Color(0xFF171F2B);
+  static const Color backgroundElevated = Color(0xFF21180F);
 
   /// Panel background - Third elevation (#223044)
   /// Use for: Panels, emphasis surfaces
-  static const Color backgroundPanel = Color(0xFF223044);
+  static const Color backgroundPanel = Color(0xFF302116);
 
   /// Overlay background - Semi-transparent
   /// Use for: Overlays, scrims, modal backgrounds
@@ -37,25 +37,25 @@ class PColors {
   // ============================================================================
 
   /// Gradient A Start - Primary (#2B6FF7)
-  static const Color gradientAStart = Color(0xFF2B6FF7);
+  static const Color gradientAStart = Color(0xFFE8B84A);
 
   /// Gradient A End - Primary Deep (#1E55C7)
-  static const Color gradientAEnd = Color(0xFF1E55C7);
+  static const Color gradientAEnd = Color(0xFFB87824);
 
   /// Gradient B Start - Secondary (#1FA971)
-  static const Color gradientBStart = Color(0xFF1FA971);
+  static const Color gradientBStart = Color(0xFFC98A32);
 
   /// Gradient B End - Secondary Deep
-  static const Color gradientBEnd = Color(0xFF178A5E);
+  static const Color gradientBEnd = Color(0xFF8C551F);
 
   /// Gradient C Start - Verification (#9B3FD1)
-  static const Color gradientCStart = Color(0xFF9B3FD1);
+  static const Color gradientCStart = Color(0xFFFFD76A);
 
   /// Gradient C End - Verification Deep (#3730A3)
-  static const Color gradientCEnd = Color(0xFF3730A3);
+  static const Color gradientCEnd = Color(0xFFC78326);
 
   /// Highlight - Attention without alarm (#F1B24A)
-  static const Color highlight = Color(0xFFF1B24A);
+  static const Color highlight = Color(0xFFFFE08A);
 
   // ============================================================================
   // Text Colors - Hierarchical text system
@@ -63,23 +63,23 @@ class PColors {
 
   /// Primary text - Highest emphasis (#F7F9FC)
   /// Use for: Headings, important content
-  static const Color textPrimary = Color(0xFFF7F9FC);
+  static const Color textPrimary = Color(0xFFF7EEDB);
 
   /// Secondary text - Medium emphasis (#D0D6E0)
   /// Use for: Body text, descriptions
-  static const Color textSecondary = Color(0xFFD0D6E0);
+  static const Color textSecondary = Color(0xFFE0D0B0);
 
   /// Tertiary text - Low emphasis (#9BA6B5)
   /// Use for: Labels, placeholders, hints
-  static const Color textTertiary = Color(0xFF9BA6B5);
+  static const Color textTertiary = Color(0xFFB8A27B);
 
   /// Disabled text - Minimal emphasis (#6D7888)
   /// Use for: Disabled states
-  static const Color textDisabled = Color(0xFF6D7888);
+  static const Color textDisabled = Color(0xFF75664F);
 
   /// On-accent text - Text on colored backgrounds
   /// Use for: Text on gradient buttons, badges
-  static const Color textOnAccent = Color(0xFFFFFFFF);
+  static const Color textOnAccent = Color(0xFF160F08);
 
   // ============================================================================
   // Semantic Colors - Status and feedback
@@ -113,23 +113,23 @@ class PColors {
   static const Color errorBorder = Color(0x40E24A4A);
 
   /// Info color - Optimized for dark UI (#2B6FF7)
-  static const Color info = Color(0xFF2B6FF7);
+  static const Color info = Color(0xFFE8B84A);
 
   /// Info background - Subtle info background
-  static const Color infoBackground = Color(0x1A2B6FF7);
+  static const Color infoBackground = Color(0x24E8B84A);
 
   /// Info border - Info border/outline
-  static const Color infoBorder = Color(0x402B6FF7);
+  static const Color infoBorder = Color(0x66E8B84A);
 
   // ============================================================================
   // Interactive Colors - UI interaction states
   // ============================================================================
 
   /// Focus ring - Primary for focus indicators
-  static const Color focusRing = Color(0xFF2B6FF7);
+  static const Color focusRing = Color(0xFFE8B84A);
 
   /// Focus ring with opacity - For subtle focus states
-  static const Color focusRingSubtle = Color(0x402B6FF7);
+  static const Color focusRingSubtle = Color(0x66E8B84A);
 
   /// Hover overlay - Semi-transparent white for hover states
   static const Color hoverOverlay = Color(0x0DFFFFFF);
@@ -138,26 +138,26 @@ class PColors {
   static const Color pressedOverlay = Color(0x1AFFFFFF);
 
   /// Selected background - For selected items
-  static const Color selectedBackground = Color(0x1A2B6FF7);
+  static const Color selectedBackground = Color(0x24E8B84A);
 
   /// Selected border - For selected item borders
-  static const Color selectedBorder = Color(0x802B6FF7);
+  static const Color selectedBorder = Color(0xA6E8B84A);
 
   // ============================================================================
   // Border Colors - Dividers and borders
   // ============================================================================
 
   /// Border default - Standard border color (rgba(255, 255, 255, 0.08))
-  static const Color borderDefault = Color(0x14FFFFFF);
+  static const Color borderDefault = Color(0x24E8B84A);
 
   /// Border subtle - More subtle border (rgba(255, 255, 255, 0.04))
-  static const Color borderSubtle = Color(0x0AFFFFFF);
+  static const Color borderSubtle = Color(0x18E8B84A);
 
   /// Border strong - More prominent border (rgba(255, 255, 255, 0.14))
-  static const Color borderStrong = Color(0x24FFFFFF);
+  static const Color borderStrong = Color(0x55E8B84A);
 
   /// Divider - Separator line color
-  static const Color divider = Color(0x14FFFFFF);
+  static const Color divider = Color(0x24E8B84A);
 
   // ============================================================================
   // Shadow Colors - Elevation and depth
@@ -181,12 +181,12 @@ class PColors {
 
   /// Chart colors - For data visualization
   static const List<Color> chartColors = [
-    Color(0xFF2B6FF7), // Primary
-    Color(0xFF1E55C7), // Primary Deep
-    Color(0xFF1FA971), // Secondary
-    Color(0xFFF1B24A), // Highlight
-    Color(0xFF16A34A), // Success
-    Color(0xFFF59E0B), // Warning
+    Color(0xFFE8B84A), // Pirate gold
+    Color(0xFFFFD76A), // Bright doubloon
+    Color(0xFFC98A32), // Antique bronze
+    Color(0xFF2E8C82), // Aged teal
+    Color(0xFF5AAE61), // Success green
+    Color(0xFFC8703B), // Copper
   ];
 
   // ============================================================================
@@ -230,27 +230,27 @@ class PColorsLight {
   PColorsLight._();
 
   // Backgrounds
-  static const Color backgroundBase = Color(0xFFF5F7FA);
-  static const Color backgroundSurface = Color(0xFFFFFFFF);
-  static const Color backgroundElevated = Color(0xFFEDF1F6);
-  static const Color backgroundPanel = Color(0xFFE6ECF2);
+  static const Color backgroundBase = Color(0xFFF4E9D4);
+  static const Color backgroundSurface = Color(0xFFFFF8EA);
+  static const Color backgroundElevated = Color(0xFFEAD9BB);
+  static const Color backgroundPanel = Color(0xFFDEC59E);
   static const Color backgroundOverlay = Color(0x99000000);
 
   // Accents
-  static const Color gradientAStart = Color(0xFF2B6FF7);
-  static const Color gradientAEnd = Color(0xFF1E55C7);
-  static const Color gradientBStart = Color(0xFF1FA971);
-  static const Color gradientBEnd = Color(0xFF178A5E);
-  static const Color gradientCStart = Color(0xFF9B3FD1);
-  static const Color gradientCEnd = Color(0xFF3730A3);
-  static const Color highlight = Color(0xFFF1B24A);
+  static const Color gradientAStart = Color(0xFFE8B84A);
+  static const Color gradientAEnd = Color(0xFFB87824);
+  static const Color gradientBStart = Color(0xFFC98A32);
+  static const Color gradientBEnd = Color(0xFF8C551F);
+  static const Color gradientCStart = Color(0xFFFFD76A);
+  static const Color gradientCEnd = Color(0xFFC78326);
+  static const Color highlight = Color(0xFFFFE08A);
 
   // Text
-  static const Color textPrimary = Color(0xFF0B1220);
-  static const Color textSecondary = Color(0xFF2A3342);
-  static const Color textTertiary = Color(0xFF5A667A);
-  static const Color textDisabled = Color(0xFF7B8798);
-  static const Color textOnAccent = Color(0xFFFFFFFF);
+  static const Color textPrimary = Color(0xFF24170B);
+  static const Color textSecondary = Color(0xFF49331D);
+  static const Color textTertiary = Color(0xFF765F43);
+  static const Color textDisabled = Color(0xFF9A876D);
+  static const Color textOnAccent = Color(0xFF24170B);
 
   // Semantic
   static const Color success = Color(0xFF16A34A);
@@ -262,17 +262,17 @@ class PColorsLight {
   static const Color error = Color(0xFFE24A4A);
   static const Color errorBackground = Color(0x1AE24A4A);
   static const Color errorBorder = Color(0x40E24A4A);
-  static const Color info = Color(0xFF2B6FF7);
-  static const Color infoBackground = Color(0x1A2B6FF7);
-  static const Color infoBorder = Color(0x402B6FF7);
+  static const Color info = Color(0xFFE8B84A);
+  static const Color infoBackground = Color(0x24E8B84A);
+  static const Color infoBorder = Color(0x66E8B84A);
 
   // Interactive
-  static const Color focusRing = Color(0xFF2B6FF7);
-  static const Color focusRingSubtle = Color(0x402B6FF7);
+  static const Color focusRing = Color(0xFFE8B84A);
+  static const Color focusRingSubtle = Color(0x66E8B84A);
   static const Color hoverOverlay = Color(0x0A000000);
   static const Color pressedOverlay = Color(0x14000000);
-  static const Color selectedBackground = Color(0x1A2B6FF7);
-  static const Color selectedBorder = Color(0x802B6FF7);
+  static const Color selectedBackground = Color(0x24E8B84A);
+  static const Color selectedBorder = Color(0xA6E8B84A);
 
   // Borders
   static const Color borderDefault = Color(0x10000000);

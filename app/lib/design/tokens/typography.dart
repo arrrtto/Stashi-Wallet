@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Design tokens for typography - Sora for UI, JetBrains Mono for code
+/// Design tokens for typography - Montserrat for UI, JetBrains Mono for code
 ///
 /// Defines a comprehensive type scale with optical sizing for different
 /// text hierarchies. Fonts are bundled locally to avoid runtime fetching.
@@ -11,14 +11,16 @@ class PTypography {
   // Font Families
   // ============================================================================
 
-  /// Sora font family for UI text (local asset)
-  static String get fontFamilyUI => 'Sora';
+  /// Montserrat for the Pirate Gold UI. On Linux this resolves from the system font set.
+  /// The bundled Sora asset remains the first fallback for portable builds.
+  static String get fontFamilyUI => 'Montserrat';
 
   /// JetBrains Mono font family for code/monospace text (local asset)
   static String get fontFamilyMono => 'JetBrainsMono';
 
   /// Bundled fallbacks for every script available in the language picker.
   static const List<String> fontFamilyFallback = <String>[
+    'Sora',
     'NotoSans',
     'NotoSansSymbols2',
     'NotoSansArabic',

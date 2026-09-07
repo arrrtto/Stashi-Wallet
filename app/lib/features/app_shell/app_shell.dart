@@ -147,6 +147,7 @@ class AppShell extends ConsumerWidget {
       ref.watch(kdfSwapWarmupProvider);
     }
     final currentIndex = _locationToIndex(location);
+    final pirateHome = isDesktopPlatform && location.startsWith('/home');
     final nav = PNav(
       currentIndex: currentIndex,
       onDestinationSelected: (index) => _onDestinationSelected(context, index),
@@ -167,7 +168,9 @@ class AppShell extends ConsumerWidget {
                   children: [
                     DecoratedBox(
                       decoration: BoxDecoration(
-                        color: AppColors.backgroundSurface,
+                        color: pirateHome
+                            ? const Color(0xA6100B07)
+                            : AppColors.backgroundSurface,
                         border: Border(
                           right: BorderSide(color: AppColors.borderSubtle),
                         ),
@@ -184,6 +187,7 @@ class AppShell extends ConsumerWidget {
                 ),
               ),
               DesktopStatusBar(
+                glass: pirateHome,
                 settingsSelected: location.startsWith('/settings'),
                 onSettingsTap: () => context.go('/settings'),
                 onConnectionTap: () => context.push('/settings/privacy-shield'),
@@ -191,10 +195,39 @@ class AppShell extends ConsumerWidget {
             ],
           )
         : content;
+    final themedBody = pirateHome
+        ? Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.asset(
+                'assets/backgrounds/pirate_beach_v4.jpg',
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+                filterQuality: FilterQuality.high,
+              ),
+              const DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0x22000000),
+                      Color(0x08000000),
+                      Color(0x4A000000),
+                    ],
+                    stops: [0.0, 0.55, 1.0],
+                  ),
+                ),
+              ),
+              body,
+            ],
+          )
+        : body;
+
     return PScaffold(
       title: 'Stashi Wallet',
       useSafeArea: false,
-      body: body,
+      body: themedBody,
       bottomNavigationBar: isDesktopPlatform ? null : nav,
     );
   }

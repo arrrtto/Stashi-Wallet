@@ -194,6 +194,16 @@ class _DesktopNavItemState extends State<_DesktopNavItem> {
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           color: background,
+          gradient: widget.isSelected
+              ? LinearGradient(
+                  colors: [
+                    AppColors.highlight.withValues(alpha: 0.28),
+                    AppColors.gradientAEnd.withValues(alpha: 0.16),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
+              : null,
           borderRadius: radius,
           border: Border.all(
             color: _isFocused
@@ -203,6 +213,15 @@ class _DesktopNavItemState extends State<_DesktopNavItem> {
                 : Colors.transparent,
             width: _isFocused ? 2 : 1,
           ),
+          boxShadow: widget.isSelected
+              ? [
+                  BoxShadow(
+                    color: AppColors.gradientAStart.withValues(alpha: 0.10),
+                    blurRadius: 12,
+                    spreadRadius: 0.5,
+                  ),
+                ]
+              : null,
         ),
         child: Material(
           color: Colors.transparent,

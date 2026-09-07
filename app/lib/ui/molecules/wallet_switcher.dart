@@ -53,8 +53,25 @@ class WalletSwitcherButton extends ConsumerWidget {
         ),
         decoration: BoxDecoration(
           color: AppColors.backgroundSurface,
+          gradient: LinearGradient(
+            colors: [
+              AppColors.gradientAStart.withValues(alpha: 0.08),
+              AppColors.backgroundSurface,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
           borderRadius: BorderRadius.circular(PSpacing.radiusMD),
-          border: Border.all(color: AppColors.borderSubtle),
+          border: Border.all(
+            color: AppColors.gradientAStart.withValues(alpha: 0.24),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.shadow,
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
         child: Row(
           mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
@@ -62,7 +79,7 @@ class WalletSwitcherButton extends ConsumerWidget {
             Icon(
               Icons.account_balance_wallet_outlined,
               size: compact ? PSpacing.iconSM : PSpacing.iconMD,
-              color: AppColors.textSecondary,
+              color: AppColors.gradientAStart,
             ),
             SizedBox(width: compact ? PSpacing.xs : PSpacing.sm),
             if (fullWidth)

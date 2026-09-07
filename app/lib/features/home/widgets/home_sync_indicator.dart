@@ -75,6 +75,9 @@ class HomeSyncIndicator extends StatelessWidget {
       label: 'Wallet sync status'.tr,
       value: blockProgressText,
       child: PCard(
+        backgroundColor: Theme.of(context).brightness == Brightness.light
+            ? const Color(0xC8FFF8EA)
+            : const Color(0xA8120E09),
         padding: const EdgeInsets.all(PSpacing.md),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

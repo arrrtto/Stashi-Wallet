@@ -32,6 +32,7 @@ class BalanceHero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
     final displayText = isHidden ? _maskedBalanceText : balanceText;
     final displaySecondaryText = secondaryText == null
         ? null
@@ -43,22 +44,33 @@ class BalanceHero extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.backgroundSurface,
+        color: isLight ? const Color(0xC8FFF8EA) : const Color(0xA8110D09),
         borderRadius: BorderRadius.circular(PSpacing.radiusCard),
-        border: Border.all(color: AppColors.borderStrong),
+        border: Border.all(
+          color: AppColors.highlight.withValues(alpha: 0.72),
+          width: 1.35,
+        ),
         gradient: LinearGradient(
           colors: [
-            AppColors.gradientAStart.withValues(alpha: 0.08),
-            AppColors.gradientBStart.withValues(alpha: 0.06),
+            AppColors.gradientAStart.withValues(alpha: isLight ? 0.12 : 0.10),
+            (isLight ? const Color(0xA8FFF8EA) : const Color(0x78120E09)),
+            AppColors.gradientBEnd.withValues(alpha: isLight ? 0.08 : 0.14),
           ],
+          stops: const [0.0, 0.52, 1.0],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.shadow,
-            blurRadius: compact ? 8 : 12,
-            offset: Offset(0, compact ? 4 : 6),
+            color: AppColors.gradientAStart.withValues(alpha: 0.10),
+            blurRadius: compact ? 14 : 24,
+            spreadRadius: compact ? 0 : 1,
+            offset: Offset(0, compact ? 4 : 8),
+          ),
+          BoxShadow(
+            color: AppColors.shadowStrong,
+            blurRadius: compact ? 8 : 16,
+            offset: Offset(0, compact ? 4 : 8),
           ),
         ],
       ),
@@ -98,6 +110,14 @@ class BalanceHero extends StatelessWidget {
               child: Text(
                 displayText,
                 style: titleStyle.copyWith(
+                  color: AppColors.highlight,
+                  fontWeight: FontWeight.w600,
+                  shadows: [
+                    Shadow(
+                      color: AppColors.gradientAStart.withValues(alpha: 0.18),
+                      blurRadius: 12,
+                    ),
+                  ],
                   fontFeatures: const [FontFeature.tabularFigures()],
                 ),
               ),

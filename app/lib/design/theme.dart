@@ -11,8 +11,8 @@ const PageTransitionsTheme _piratePageTransitions = PageTransitionsTheme(
     TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),
     TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-    TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
-    TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
+    TargetPlatform.linux: FadeForwardsPageTransitionsBuilder(),
+    TargetPlatform.windows: FadeForwardsPageTransitionsBuilder(),
     TargetPlatform.fuchsia: FadeUpwardsPageTransitionsBuilder(),
   },
 );
@@ -331,7 +331,8 @@ class PTheme {
       // Card Theme
       // ========================================================================
       cardTheme: CardThemeData(
-        elevation: 0,
+        elevation: 3,
+        shadowColor: PColors.shadowStrong,
         color: PColors.backgroundSurface,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(
@@ -345,7 +346,8 @@ class PTheme {
       // Dialog Theme
       // ========================================================================
       dialogTheme: DialogThemeData(
-        elevation: 8,
+        elevation: 12,
+        shadowColor: PColors.shadowStrong,
         backgroundColor: PColors.backgroundElevated,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(
@@ -774,7 +776,8 @@ class PTheme {
       // Card Theme
       // ========================================================================
       cardTheme: CardThemeData(
-        elevation: 0,
+        elevation: 2,
+        shadowColor: PColorsLight.shadow,
         color: PColorsLight.backgroundSurface,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(
@@ -788,7 +791,8 @@ class PTheme {
       // Dialog Theme
       // ========================================================================
       dialogTheme: DialogThemeData(
-        elevation: 8,
+        elevation: 10,
+        shadowColor: PColorsLight.shadowStrong,
         backgroundColor: PColorsLight.backgroundElevated,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(

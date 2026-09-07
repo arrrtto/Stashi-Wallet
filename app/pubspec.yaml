@@ -144,6 +144,7 @@ flutter:
     - assets/bip39/
     - assets/security/
     - assets/icons/
+    - assets/backgrounds/
   
   # Fonts (local only)
   fonts:

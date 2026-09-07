@@ -17,6 +17,7 @@ class DesktopStatusBar extends ConsumerWidget {
     required this.settingsSelected,
     required this.onSettingsTap,
     required this.onConnectionTap,
+    this.glass = false,
     super.key,
   });
 
@@ -29,6 +30,7 @@ class DesktopStatusBar extends ConsumerWidget {
   final bool settingsSelected;
   final VoidCallback onSettingsTap;
   final VoidCallback onConnectionTap;
+  final bool glass;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -56,8 +58,12 @@ class DesktopStatusBar extends ConsumerWidget {
       key: barKey,
       height: PSpacing.desktopStatusBarHeight,
       decoration: BoxDecoration(
-        color: AppColors.backgroundSurface,
-        border: Border(top: BorderSide(color: AppColors.borderSubtle)),
+        color: glass ? const Color(0xB00B0806) : AppColors.backgroundSurface,
+        border: Border(
+          top: BorderSide(
+            color: glass ? const Color(0x66E8B84A) : AppColors.borderSubtle,
+          ),
+        ),
       ),
       child: Row(
         children: [
